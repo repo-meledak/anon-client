@@ -20,7 +20,7 @@ function Register() {
     try {
       const { data } = await axios({
         method: "post",
-        url: "http://localhost:3000/register",
+        url: "https://anon-server.dwriz.com/register",
         data: input,
       });
 

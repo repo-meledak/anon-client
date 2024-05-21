@@ -21,7 +21,7 @@ function Login() {
     try {
       const { data } = await axios({
         method: "post",
-        url: "http://localhost:3000/login",
+        url: "https://anon-server.dwriz.com/login",
         data: input,
       });
 
