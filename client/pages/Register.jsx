@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "../pages/Register.css";
 import RegisterComponent from "../components/RegisterComponent";
 
-export const RegisterContext = createContext(null)
+export const RegisterContext = createContext(null);
 
 function Register() {
   const navigate = useNavigate();
@@ -43,7 +43,9 @@ function Register() {
   }
   return (
     <>
-  <RegisterComponent />
+      <RegisterContext.Provider value={{ handleChangeInput, handleForm }}>
+        <RegisterComponent />
+      </RegisterContext.Provider>
     </>
   );
 }
