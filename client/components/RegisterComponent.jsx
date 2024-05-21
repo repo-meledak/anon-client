@@ -2,19 +2,18 @@ import { useContext } from "react";
 import { RegisterContext } from "../pages/Register";
 
 export default function RegisterComponent() {
-
-    const Register = useContext(RegisterContext) 
+  const Register = useContext(RegisterContext);
   return (
     <>
       <div className="register-box">
-        <form onSubmit={handleForm}>
+        <form onSubmit={Register.handleForm}>
           <div className="user-box">
             <input
               type="text"
               id="username"
               autoComplete="off"
               name="username"
-              onChange={handleChangeInput}
+              onChange={Register.handleChangeInput}
             />
             <label htmlFor="">username</label>
           </div>
@@ -23,7 +22,7 @@ export default function RegisterComponent() {
               type="password"
               id="password"
               name="password"
-              onChange={handleChangeInput}
+              onChange={Register.handleChangeInput}
             />
             <label htmlFor="">password</label>
           </div>
