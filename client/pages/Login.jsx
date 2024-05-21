@@ -21,7 +21,7 @@ function Login() {
     try {
       const { data } = await axios({
         method: "post",
-        url: "http://localhost:3000/login",
+        url: "https://anon-server.dwriz.com/login",
         data: input,
       });
 
@@ -39,31 +39,33 @@ function Login() {
   return (
     <>
       <div className="login-box">
-        <h2>Login</h2>
-        <form action="">
+        <form onSubmit={handleForm}>
           <div className="user-box">
-            <input type="text" required="" />
-            <label htmlFor="">Username</label>
+            <input
+              type="text"
+              id="username"
+              autoComplete="off"
+              name="username"
+              onChange={handleChangeInput}
+            />
+            <label htmlFor="username">username</label>
           </div>
           <div className="user-box">
-            <input type="password" required="" />
-            <label htmlFor="">password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChangeInput}
+            />
+            <label htmlFor="password">password</label>
           </div>
-          <a href="">
+          <button type="submit" className="login-button">
             <span />
             <span />
             <span />
             <span />
             Login
-          </a>
-
-          <a href="">
-            <span />
-            <span />
-            <span />
-            <span />
-            Register
-          </a>
+          </button>
         </form>
       </div>
     </>

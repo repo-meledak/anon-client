@@ -3,26 +3,26 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
+import Swal from "sweetalert2";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 // import MainLayout from "./components/MainLayout";
-// import Swal from "sweetalert2";
 // import ChatPage from "./pages/ChatPage";
 
 const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-    // loader: () => {
-    //   if (localStorage.getItem("access_token")) {
-    //     Swal.fire({
-    //       icon: "error",
-    //       text: "Already logged in!",
-    //     });
-    //     return redirect("/");
-    //   }
-    //   return null;
-    // },
+    loader: () => {
+      if (localStorage.getItem("access_token")) {
+        Swal.fire({
+          icon: "error",
+          text: "Already logged in!",
+        });
+        return redirect("/");
+      }
+      return null;
+    },
   },
   {
     path: "/register",
