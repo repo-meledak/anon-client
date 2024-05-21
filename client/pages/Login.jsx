@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../pages/Login.css";
 
@@ -66,6 +66,15 @@ function Login() {
             <span />
             Login
           </button>
+          <Link to="/register">
+            <button className="login-button">
+              <span />
+              <span />
+              <span />
+              <span />
+              Register
+            </button>
+          </Link>
         </form>
       </div>
     </>
