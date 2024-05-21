@@ -39,7 +39,7 @@ function Login() {
   return (
     <>
       <div className="login-box">
-        <h2>Login Form</h2>
+        <h2>Login</h2>
         <form action="">
           <div className="user-box">
             <input type="text" required="" />
@@ -55,6 +55,14 @@ function Login() {
             <span />
             <span />
             Login
+          </a>
+
+          <a href="">
+            <span />
+            <span />
+            <span />
+            <span />
+            Register
           </a>
         </form>
       </div>

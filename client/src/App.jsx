@@ -4,10 +4,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 // import MainLayout from "./components/MainLayout";
 // import Swal from "sweetalert2";
 // import ChatPage from "./pages/ChatPage";
-// import RegisterPage from "./pages/RegisterPage";
 
 const router = createBrowserRouter([
   {
@@ -24,20 +24,20 @@ const router = createBrowserRouter([
     //   return null;
     // },
   },
-  // {
-  //   path: "/register",
-  //   element: <RegisterPage />,
-  //   loader: () => {
-  //     if (localStorage.getItem("access_token")) {
-  //       Swal.fire({
-  //         icon: "error",
-  //         text: "Already logged in!",
-  //       });
-  //       return redirect("/");
-  //     }
-  //     return null;
-  //   },
-  // },
+  {
+    path: "/register",
+    element: <Register />,
+    //   loader: () => {
+    //     if (localStorage.getItem("access_token")) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         text: "Already logged in!",
+    //       });
+    //       return redirect("/");
+    //     }
+    //     return null;
+    //   },
+  },
   // {
   //   element: <MainLayout />,
   //   loader: () => {
