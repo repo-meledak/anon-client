@@ -21,7 +21,7 @@ function Login() {
     try {
       const { data } = await axios({
         method: "post",
-        url: "http://localhost:3000/login",
+        url: "https://anon-server.dwriz.com/login",
         data: input,
       });
 
@@ -39,23 +39,33 @@ function Login() {
   return (
     <>
       <div className="login-box">
-        <h2>Login Form</h2>
-        <form action="">
+        <form onSubmit={handleForm}>
           <div className="user-box">
-            <input type="text" required="" />
-            <label htmlFor="">Username</label>
+            <input
+              type="text"
+              id="username"
+              autoComplete="off"
+              name="username"
+              onChange={handleChangeInput}
+            />
+            <label htmlFor="username">username</label>
           </div>
           <div className="user-box">
-            <input type="password" required="" />
-            <label htmlFor="">password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChangeInput}
+            />
+            <label htmlFor="password">password</label>
           </div>
-          <a href="">
+          <button type="submit" className="login-button">
             <span />
             <span />
             <span />
             <span />
             Login
-          </a>
+          </button>
         </form>
       </div>
     </>
@@ -63,46 +73,3 @@ function Login() {
 }
 
 export default Login;
-
-/*
-      <div className="container-fluid d-flex justify-content-center align-items-center">
-        <div className="border w-75 p-5 my-5 bg-white rounded-3 shadow">
-          <div className="align-self-center">
-            <form onSubmit={handleForm}>
-              <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                  autoComplete="off"
-                  name="username"
-                  onChange={handleChangeInput}
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  onChange={handleChangeInput}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary w-100">
-                Login
-              </button>
-              <Link to="/register">
-                <button className="mt-2 btn btn-warning w-100">Register</button>
-              </Link>
-            </form>
-          </div>
-        </div>
-      </div>
-
-*/
