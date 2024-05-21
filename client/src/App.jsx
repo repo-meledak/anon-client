@@ -3,11 +3,12 @@
 // import viteLogo from "/vite.svg";
 // import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ChatRoom } from "./assets/pages/ChatRoom";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    path: "/chatroom",
+    element: <ChatRoom />,
   },
 ]);
 
