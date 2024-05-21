@@ -6,8 +6,8 @@ import {
 import Swal from "sweetalert2";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-// import MainLayout from "./components/MainLayout";
-// import ChatPage from "./pages/ChatPage";
+import MainLayout from "../components/MainLayout";
+import ChatPage from "../pages/ChatPage";
 
 const router = createBrowserRouter([
   {
@@ -27,36 +27,36 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-    //   loader: () => {
-    //     if (localStorage.getItem("access_token")) {
-    //       Swal.fire({
-    //         icon: "error",
-    //         text: "Already logged in!",
-    //       });
-    //       return redirect("/");
-    //     }
-    //     return null;
-    //   },
+      loader: () => {
+        if (localStorage.getItem("access_token")) {
+          Swal.fire({
+            icon: "error",
+            text: "Already logged in!",
+          });
+          return redirect("/");
+        }
+        return null;
+      },
   },
-  // {
-  //   element: <MainLayout />,
-  //   loader: () => {
-  //     if (!localStorage.getItem("access_token")) {
-  //       Swal.fire({
-  //         icon: "error",
-  //         text: "Please log in first!",
-  //       });
-  //       return redirect("/login");
-  //     }
-  //     return null;
-  //   },
-  //   children: [
-  //     {
-  //       path: "/",
-  //       element: <ChatPage />,
-  //     },
-  //   ],
-  // },
+  {
+    element: <MainLayout />,
+    loader: () => {
+      if (!localStorage.getItem("access_token")) {
+        Swal.fire({
+          icon: "error",
+          text: "Please log in first!",
+        });
+        return redirect("/login");
+      }
+      return null;
+    },
+    children: [
+      {
+        path: "/",
+        element: <ChatPage />,
+      },
+    ],
+  },
 ]);
 
 function App() {
