@@ -1,15 +1,19 @@
+import { useContext } from "react";
+import { LoginContext } from "../pages/Login";
+
 export default function LoginComponent() {
-    return (
-        <>
-         <div className="login-box">
-        <form onSubmit={handleForm}>
+  const Login = useContext(LoginContext);
+  return (
+    <>
+      <div className="login-box">
+        <form onSubmit={Login.handleForm}>
           <div className="user-box">
             <input
               type="text"
               id="username"
               autoComplete="off"
               name="username"
-              onChange={handleChangeInput}
+              onChange={Login.handleChangeInput}
             />
             <label htmlFor="username">username</label>
           </div>
@@ -18,7 +22,7 @@ export default function LoginComponent() {
               type="password"
               id="password"
               name="password"
-              onChange={handleChangeInput}
+              onChange={Login.handleChangeInput}
             />
             <label htmlFor="password">password</label>
           </div>
@@ -31,6 +35,6 @@ export default function LoginComponent() {
           </button>
         </form>
       </div>
-        </>
-    )
+    </>
+  );
 }
