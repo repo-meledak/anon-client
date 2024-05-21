@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-import "/Users/lilianadisty/Desktop/FASE 2/GP/anon-client/client/src/App.css";
+import "../../App.css";
 
 export const ChatRoom = () => {
   const [messages, setMessages] = useState([]);
