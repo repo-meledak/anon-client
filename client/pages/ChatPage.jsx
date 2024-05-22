@@ -3,7 +3,6 @@ import axios from "axios";
 import ChatBubble from "../components/ChatBubble";
 import Swal from "sweetalert2";
 import { io } from "socket.io-client";
-import "../pages/ChatPage.css";
 
 function ChatPage() {
   const messageContainerRef = useRef(null);
@@ -37,7 +36,8 @@ function ChatPage() {
       setMessages(data);
 
       if (messageContainerRef.current) {
-        messageContainerRef.current.scrollTop = 0;
+        messageContainerRef.current.scrollTop =
+          messageContainerRef.current.scrollHeight;
       }
     } catch (error) {
       Swal.fire({
@@ -81,32 +81,91 @@ function ChatPage() {
   }
 
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center">
-      <div className="chat-box bg-white rounded-3 shadow">
-        <div className="message-container" ref={messageContainerRef}>
-          <div className="border rounded-3">
+    <div style={styles.container}>
+      <div style={styles.chatBox}>
+        <div style={styles.messageContainer} ref={messageContainerRef}>
+          <div style={styles.messageBorder}>
             {messages.map((message) => (
               <ChatBubble key={message.id} message={message} />
             ))}
           </div>
         </div>
-        <form className="input-group mt-2" onSubmit={handleForm}>
+        <form style={styles.inputGroup} onSubmit={handleForm}>
           <input
             type="text"
-            className="form-control"
             name="message"
             value={input.message}
             onChange={handleChangeInput}
+            placeholder="Type a message..."
+            style={styles.input}
           />
-          <div className="input-group-append">
-            <button className="btn btn-success" type="submit">
-              Send
-            </button>
-          </div>
+          <button type="submit" style={styles.button}>
+            Send
+          </button>
         </form>
       </div>
     </div>
   );
 }
+
+const styles = {
+  container: {
+    height: "100vh",
+    background: "#f0f2f5",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px",
+  },
+  chatBox: {
+    width: "90%",
+    maxWidth: "600px",
+    height: "80vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    padding: "1rem",
+    background: "#ffffff",
+    borderRadius: "10px",
+    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+  },
+  messageContainer: {
+    flexGrow: 1,
+    overflowY: "auto",
+    padding: "1rem",
+    marginBottom: "1rem",
+    border: "1px solid #e0e0e0",
+    borderRadius: "10px",
+    background: "#f9f9f9",
+  },
+  messageBorder: {
+    borderRadius: "10px",
+  },
+  inputGroup: {
+    display: "flex",
+    borderRadius: "10px",
+    overflow: "hidden",
+  },
+  input: {
+    flexGrow: 1,
+    border: "none",
+    padding: "1rem",
+    borderTopLeftRadius: "10px",
+    borderBottomLeftRadius: "10px",
+    outline: "none",
+    boxShadow: "none",
+    fontSize: "16px",
+  },
+  button: {
+    border: "none",
+    background: "#28a745",
+    color: "white",
+    padding: "1rem 2rem",
+    borderTopRightRadius: "10px",
+    borderBottomRightRadius: "10px",
+    cursor: "pointer",
+    fontSize: "16px",
+  },
+};
 
 export default ChatPage;
