@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "../pages/Login.css";
 import LoginComponent from "../components/LoginComponent";
 
-export const LoginContext = createContext(null)
+export const LoginContext = createContext(null);
 
 function Login() {
   const navigate = useNavigate();
@@ -41,9 +41,9 @@ function Login() {
 
   return (
     <>
-    <LoginContext.Provider value={{handleChangeInput, handleForm}}>
-     <LoginComponent />
-    </LoginContext.Provider>
+      <LoginContext.Provider value={{ handleChangeInput, handleForm }}>
+        <LoginComponent />
+      </LoginContext.Provider>
     </>
   );
 }

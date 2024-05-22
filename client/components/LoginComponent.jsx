@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { LoginContext } from "../pages/Login";
+import { Link } from "react-router-dom";
 
 export default function LoginComponent() {
   const Login = useContext(LoginContext);
@@ -33,6 +34,15 @@ export default function LoginComponent() {
             <span />
             Login
           </button>
+          <Link to="/register">
+            <button className="login-button">
+              <span />
+              <span />
+              <span />
+              <span />
+              Register Page
+            </button>
+          </Link>
         </form>
       </div>
     </>
