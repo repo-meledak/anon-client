@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../pages/Register.css";
+import RegisterComponent from "../components/RegisterComponent";
+
+export const RegisterContext = createContext(null);
 
 function Register() {
   const navigate = useNavigate();
@@ -40,36 +43,9 @@ function Register() {
   }
   return (
     <>
-      <div className="register-box">
-        <form onSubmit={handleForm}>
-          <div className="user-box">
-            <input
-              type="text"
-              id="username"
-              autoComplete="off"
-              name="username"
-              onChange={handleChangeInput}
-            />
-            <label htmlFor="">username</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handleChangeInput}
-            />
-            <label htmlFor="">password</label>
-          </div>
-          <button type="submit" className="register-button">
-            <span />
-            <span />
-            <span />
-            <span />
-            Register
-          </button>
-        </form>
-      </div>
+      <RegisterContext.Provider value={{ handleChangeInput, handleForm }}>
+        <RegisterComponent />
+      </RegisterContext.Provider>
     </>
   );
 }

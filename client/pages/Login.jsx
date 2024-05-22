@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../pages/Login.css";
+import LoginComponent from "../components/LoginComponent";
+
+export const LoginContext = createContext(null)
 
 function Login() {
   const navigate = useNavigate();
@@ -38,45 +41,9 @@ function Login() {
 
   return (
     <>
-      <div className="login-box">
-        <form onSubmit={handleForm}>
-          <div className="user-box">
-            <input
-              type="text"
-              id="username"
-              autoComplete="off"
-              name="username"
-              onChange={handleChangeInput}
-            />
-            <label htmlFor="username">username</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handleChangeInput}
-            />
-            <label htmlFor="password">password</label>
-          </div>
-          <button type="submit" className="login-button">
-            <span />
-            <span />
-            <span />
-            <span />
-            Login
-          </button>
-          <Link to="/register">
-            <button className="login-button">
-              <span />
-              <span />
-              <span />
-              <span />
-              Register
-            </button>
-          </Link>
-        </form>
-      </div>
+    <LoginContext.Provider value={{handleChangeInput, handleForm}}>
+     <LoginComponent />
+    </LoginContext.Provider>
     </>
   );
 }
