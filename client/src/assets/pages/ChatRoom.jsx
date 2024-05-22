@@ -88,11 +88,7 @@ export const ChatRoom = () => {
                       />
                       <div className="vcentered info-combo">
                         <h3 className="no-margin-bottom name"> John Doe </h3>
-                        <h5>
-                          {" "}
-                          Hah, too late, I already bought it and my team is
-                          impleting the new design right now.
-                        </h5>
+                        <h5>{messages.message}</h5>
                       </div>
                       <div className="contacts-add">
                         <span className="message-time">
