@@ -85,7 +85,7 @@ function ChatPage() {
 
   return (
    <>
-   <ChatPageContext.Provider value={{messages, handleChangeInput, handleForm}}>
+   <ChatPageContext.Provider value={{messages, input, messageContainerRef, handleChangeInput, handleForm}}>
    <ChatPageComponent/>
    </ChatPageContext.Provider>
    </>
