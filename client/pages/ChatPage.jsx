@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { io } from "socket.io-client";
+import "../pages/ChatPage.css";
 
 function ChatPage() {
   const messageContainerRef = useRef(null);
@@ -80,7 +81,7 @@ function ChatPage() {
   }
 
   return (
-    <section style={{ backgroundColor: "#f0f2f5", minHeight: "100vh" }}>
+    <section style={{ backgroundColor: "rgba", minHeight: "100vh" }}>
       <div className="container py-5">
         <div className="row">
           <div className="col-md-5">
