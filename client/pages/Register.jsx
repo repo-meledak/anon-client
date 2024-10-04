@@ -24,7 +24,7 @@ function Register() {
     try {
       await axios({
         method: "post",
-        url: "https://anon-server.dwriz.com/register",
+        url: "http://localhost:3000/register",
         data: input,
       });
 

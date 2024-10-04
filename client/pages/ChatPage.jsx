@@ -13,7 +13,7 @@ function ChatPage() {
   const socket = useRef(null);
 
   useEffect(() => {
-    socket.current = io("https://anon-server.dwriz.com");
+    socket.current = io("http://localhost:3000");
 
     socket.current.on("newMessage", () => {
       fetchData();
@@ -28,7 +28,7 @@ function ChatPage() {
     try {
       const { data } = await axios({
         method: "get",
-        url: "https://anon-server.dwriz.com/messages",
+        url: "http://localhost:3000/messages",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -62,7 +62,7 @@ function ChatPage() {
     try {
       await axios({
         method: "post",
-        url: "https://anon-server.dwriz.com/add-message",
+        url: "http://localhost:3000/add-message",
         data: input,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
